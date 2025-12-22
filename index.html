@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Priyank's Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,9 +11,10 @@
     <header>
         <h1>PRIYANK</h1>
     </header>
+
     <section class="profile-section">
         <div class="profile-container">
-            <img src="profile_pic.jpg" alt="Profile Photo of [Your Name]" class="profile-pic">
+            <img src="profile_pic.jpg" alt="Profile Photo" class="profile-pic">
             
             <div class="bio-text">
                 <h2>About Me</h2>
@@ -30,10 +31,15 @@
     </section>
 
     <section class="expertise-section">
-        <h2 style="text-align: center; display: block;">Professional & Academic Journey</h2>
+        <h2 style="text-align: center; display: block;">🚀 Professional & Academic Journey</h2>
 
-        <div class="subsection">
-            <h3>🎓 Academics</h3>
+        <div class="tab-container">
+            <button class="tab-btn active" onclick="openTab(event, 'academics')">🎓 Academics</button>
+            <button class="tab-btn" onclick="openTab(event, 'experience')">💼 Experience</button>
+            <button class="tab-btn" onclick="openTab(event, 'projects')">💻 Projects</button>
+        </div>
+
+        <div id="academics" class="tab-content" style="display: block;">
             <div class="card-grid">
                 <div class="card">
                     <h4>Master of Engineering (M.E.)</h4>
@@ -67,42 +73,67 @@
             </div>
         </div>
 
-        <div class="subsection">
-            <h3>💼 Internships & Experience</h3>
+        <div id="experience" class="tab-content" style="display: none;">
             <div class="card-grid">
                 <div class="card">
                     <h4>Electronics Hardware Intern</h4>
                     <p class="subtitle">SEDEMAC Mechatronics Limited, Pune | Jan 2025 – June 2025</p>
                     <ul>
-                        <li>Studied and analyzed various isolated DC-DC converter topologies for low-power applications with high-voltage input sources.</li>
-                        <li>Designed and simulated a dual-output regulated at 12V and 20V Flyback converter (2×6W from 400V DC) in DCM; investigated  
-                            and reduced cross-regulation effects from 30 to 2.1% through load regulation and leakage modeling.</li>
+                        <li>Studied and analyzed various isolated DC-DC converter topologies for low-power applications.
+                                <span id="dots-exp_l1.1">...</span>
+                                
+                                <span id="more-exp_l1.1" style="display: none;">
+                                    with high-voltage input sources.
+                                </span>
+                                
+                                <button onclick="toggleReadMore('exp_l1.1')" id="btn-exp_l1.1" class="read-more-btn">more</button>
+                        </li>
+                        <li>Designed and simulated a dual-output regulated Flyback converter.
+                                <span id="dots-exp_l1.2">...</span>
+
+                                <span id="more-exp_l1.2" style="display: none;">
+                                    (2×6W from 400V DC) in DCM; investigated and reduced cross-regulation effects from 30 to 2.1% through load regulation and leakage modeling.
+                                </span>
+
+                                <button onclick="toggleReadMore('exp_l1.2')" id="btn-exp_l1.2" class="read-more-btn">more</button>
+                        </li>
                     </ul>
                 </div>
                 
-                <div class="card-grid">
                 <div class="card">
                     <h4>Design Engineering Intern</h4>
                     <p class="subtitle">Pyrotech Electronics Limited, Udaipur | May 2023 - Jul 2023</p>
                     <ul>
-                        <li>Designed a control system for an EV Battery Management System(BMS) and developed a fast charging algorithm that reduces 
-                            charging time by approximately 25%
-                                
- 
-                        <li>Implemented an Electronic Charge Balance System to maintain uniform State of Charge (SoC) across 4-cell Li-ion battery packs, 
-                            achieving less than 3% SoC variation, voltage sensors, and a capacitor switching network in MATLAB simulations.</li>
+                        <li>Designed a control system for an EV Battery Management System (BMS)
+        
+                                <span id="dots-exp_l2.1">...</span>
+
+                                <span id="more-exp_l2.1" style="display: none;">
+                                    and developed a fast charging algorithm that reduces charging time by approximately 25%
+                                </span>
+
+                                <button onclick="toggleReadMore('exp_l2.1')" id="btn-exp_l2.1" class="read-more-btn">more</button>
+                        </li>
+                        <li>Implemented an Electronic Charge Balance System to maintain uniform State of Charge
+                                <span id="dots-exp_l2.2">...</span>
+
+                                <span id="more-exp_l2.2" style="display: none;">
+                                    (SoC) across 4-cell Li-ion battery packs, achieving less than 3% SoC variation, voltage sensors, and a capacitor switching network in MATLAB simulations.
+                                </span>
+
+                                <button onclick="toggleReadMore('exp_l2.2')" id="btn-exp_l2.2" class="read-more-btn">more</button>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div class="subsection">
-            <h3>💻 Key Projects</h3>
+        <div id="projects" class="tab-content" style="display: none;">
             <div class="card-grid">
                 <div class="card">
                     <h4>Portfolio Website</h4>
                     <p class="subtitle">Web Development</p>
-                    <a href="https://github.com/hipsterenova/Computer_Architecture_project" class="tag" target="_blank">GitHub</a>
+                    <a href="https://github.com/hipsterenova" class="tag" target="_blank">GitHub</a>
                     <p>Built a responsive personal portfolio from scratch to master web fundamentals.</p>
                 </div>
 
@@ -110,8 +141,15 @@
                     <h4>MIPS-like Architecture 32-bit Processor</h4>
                     <p class="subtitle">Computer Architecture</p>
                     <a href="https://github.com/hipsterenova/Computer_Architecture_project" class="tag" target="_blank">GitHub</a>
-                    <p>Designed and Implemented Single cycle 32-bit MIPS like processor in Xilinx Vivado using Verilog HDL.Further implemented full fledged 5 
-stage Pipelined processor(RISC-V) capable of resolving the Data Hazards and minimum CPI possible in J-type instructions.</p>
+                    <p>Designed and Implemented Single cycle 32-bit MIPS like processor in Xilinx Vivado using Verilog HDL.
+        
+                        <span id="dots-mips">...</span>
+                        
+                        <span id="more-mips" style="display: none;">
+                            Further implemented full fledged 5 stage Pipelined processor(RISC-V) capable of resolving the Data Hazards and minimum CPI possible in J-type instructions.
+                        </span>
+                        
+                        <button onclick="toggleReadMore('mips')" id="btn-mips" class="read-more-btn">more</button></p>
                 </div>
             </div>
         </div>
@@ -121,7 +159,8 @@ stage Pipelined processor(RISC-V) capable of resolving the Data Hazards and mini
     <section id="gate-container" class="expertise-section" style="text-align: center;">
         <h2>🔒 Top Secret Socials</h2>
         <p>This section is for close friends only.</p>
-        <p><strong>Question: What's the name of my sibling?</strong></p> <div style="margin-top: 20px;">
+        <p><strong>Question: What's the name of my sibling?</strong></p> 
+        <div style="margin-top: 20px;">
             <input type="text" id="password-input" placeholder="Type answer here..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
             <button onclick="checkPassword()" class="tag" style="border: none; font-size: 1rem;">Unlock</button>
         </div>
@@ -130,11 +169,10 @@ stage Pipelined processor(RISC-V) capable of resolving the Data Hazards and mini
     <section id="secret-section" class="expertise-section" style="display: none;">
         <h2 style="text-align: center;">🔓 Validated Access</h2>
         <div class="card-grid">
-            
             <div class="card">
                 <h4>📸 Instagram (Private)</h4>
                 <p>Personal life and travel photos.</p>
-                <a href="https://instagram.com/yourusername" target="_blank" class="tag">Follow Request</a>
+                <a href="https://instagram.com/priyank._.khandelwal" target="_blank" class="tag">Follow Request</a>
             </div>
 
             <div class="card">
@@ -142,9 +180,12 @@ stage Pipelined processor(RISC-V) capable of resolving the Data Hazards and mini
                 <p>Daily updates and streaks.</p>
                 <span class="tag">@your_snap_id</span>
             </div>
-
         </div>
     </section>
+
+    <footer>
+        <p style="text-align:center; padding: 20px; color: #fff; background: #2c3e50;">© 2025 Priyank. All Rights Reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

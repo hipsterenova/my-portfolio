@@ -1,35 +1,71 @@
+// --- 1. PASSWORD CHECKER FUNCTION ---
 function checkPassword() {
-    // 1. Get the value the user typed
+    // Get the user input
     const userAnswer = document.getElementById("password-input").value;
     
-    // 2. Define the correct answer (Make sure it's lowercase for easier checking)
-    // CHANGE 'pizza' TO WHATEVER ANSWER YOU WANT
-    const correctAnswer = "deeshu" || "dishu" || "deshu" || "Deeshu" || "Dishu" || "Deshu" || "DEESHU" || "DISHU" || "DESHU" || "divyank" || "Divyank" || "DIVYANK"; 
+    // Define Valid Answers (Array List)
+    // The previous way using || inside the variable definition was incorrect. 
+    // We use an Array list here to store all valid variations.
+    const validAnswers = [
+        "deeshu", "dishu", "deshu", 
+        "divyank" // Added Divyank based on your previous code
+    ];
 
-    // 3. Compare them (we turn user input to lowercase so 'Pizza' and 'pizza' both work)
-    if (userAnswer.toLowerCase() === correctAnswer) {
+    // Check if the User's answer (converted to lowercase) exists in our list
+    if (validAnswers.includes(userAnswer.toLowerCase())) {
         
         // SUCCESS: Show the secret section
         document.getElementById("secret-section").style.display = "block";
-        
-        // Hide the question box (optional, looks cleaner)
         document.getElementById("gate-container").style.display = "none";
         
     } else {
-        // FAILURE: Show an alert
+        // FAILURE
         alert("Incorrect! You don't know me well enough yet. 😉");
     }
 }
 
-// NEW CODE: Listen for the "Enter" key
-// 1. Find the input box
+// --- 2. ENTER KEY LISTENER ---
 var input = document.getElementById("password-input");
-
-// 2. Add a listener that watches every key you type
 input.addEventListener("keypress", function(event) {
-    // 3. If the key pressed is "Enter"...
     if (event.key === "Enter") {
-        // ... then run the password checker function!
         checkPassword();
     }
 });
+
+// --- 3. TAB SWITCHING FUNCTION (NEW) ---
+function openTab(event, tabName) {
+    // Hide all tab contents
+    var tabContents = document.getElementsByClassName("tab-content");
+    for (var i = 0; i < tabContents.length; i++) {
+        tabContents[i].style.display = "none";
+    }
+
+    // Remove "active" class from all buttons
+    var tabButtons = document.getElementsByClassName("tab-btn");
+    for (var i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and make the button active
+    document.getElementById(tabName).style.display = "block";
+    event.currentTarget.className += " active";
+}
+
+// --- READ MORE / READ LESS FUNCTION ---
+function toggleReadMore(id) {
+    var dots = document.getElementById("dots-" + id);
+    var moreText = document.getElementById("more-" + id);
+    var btnText = document.getElementById("btn-" + id);
+
+    if (dots.style.display === "none") {
+        // If text is currently SHOWN, hide it (Collapse)
+        dots.style.display = "inline";
+        btnText.innerHTML = "...more";
+        moreText.style.display = "none";
+    } else {
+        // If text is currently HIDDEN, show it (Expand)
+        dots.style.display = "none";
+        btnText.innerHTML = "less"; // Optional: Change button to "less"
+        moreText.style.display = "inline";
+    }
+}

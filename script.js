@@ -4,11 +4,9 @@ function checkPassword() {
     const userAnswer = document.getElementById("password-input").value;
     
     // Define Valid Answers (Array List)
-    // The previous way using || inside the variable definition was incorrect. 
-    // We use an Array list here to store all valid variations.
     const validAnswers = [
         "deeshu", "dishu", "deshu", 
-        "divyank" // Added Divyank based on your previous code
+        "divyank" 
     ];
 
     // Check if the User's answer (converted to lowercase) exists in our list
@@ -32,7 +30,7 @@ input.addEventListener("keypress", function(event) {
     }
 });
 
-// --- 3. TAB SWITCHING FUNCTION (NEW) ---
+// --- 3. TAB SWITCHING FUNCTION ---
 function openTab(event, tabName) {
     // Hide all tab contents
     var tabContents = document.getElementsByClassName("tab-content");
@@ -51,7 +49,7 @@ function openTab(event, tabName) {
     event.currentTarget.className += " active";
 }
 
-// --- READ MORE / READ LESS FUNCTION ---
+// --- 4. READ MORE / READ LESS FUNCTION ---
 function toggleReadMore(id) {
     var dots = document.getElementById("dots-" + id);
     var moreText = document.getElementById("more-" + id);
@@ -60,7 +58,7 @@ function toggleReadMore(id) {
     if (dots.style.display === "none") {
         // If text is currently SHOWN, hide it (Collapse)
         dots.style.display = "inline";
-        btnText.innerHTML = "...more";
+        btnText.innerHTML = "more";
         moreText.style.display = "none";
     } else {
         // If text is currently HIDDEN, show it (Expand)

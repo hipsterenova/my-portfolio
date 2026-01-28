@@ -578,3 +578,52 @@ li {
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
+
+/* --- UNIFIED INPUT STYLES (Paste this at the bottom) --- */
+.styled-input {
+    padding: 12px 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    transition: border-color 0.3s;
+    background-color: #fff;
+}
+
+.styled-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* --- UNIFIED BUTTON STYLES (Paste this at the bottom) --- */
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    min-width: 120px;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Wrapper to align the Secret Gate input/button side-by-side */
+.gate-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 500px;
+    margin: 20px auto 0 auto;
+    flex-wrap: wrap;
+}

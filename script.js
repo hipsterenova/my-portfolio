@@ -167,3 +167,30 @@ function type() {
 
 // Start the effect once the page loads
 document.addEventListener('DOMContentLoaded', type);
+
+// --- 7. VISITOR COUNTER LOGIC (Backend-less API) ---
+function updateVisitCount() {
+    // Using a specific namespace for your portfolio to count hits
+    // The API returns a JSON object like { "count": 123 }
+    const apiUrl = "https://api.counterapi.dev/v1/hipsterenova-portfolio/visits/up";
+    
+    fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+        const countElement = document.getElementById('visit-count');
+        if (countElement) {
+            countElement.innerText = data.count;
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching visitor count:', error);
+        // If it fails (e.g., ad blocker), just hide the text or show empty
+        const countElement = document.getElementById('visit-count');
+        if (countElement) {
+            countElement.innerText = "...";
+        }
+    });
+}
+
+// Call the counter function when the page loads
+updateVisitCount();

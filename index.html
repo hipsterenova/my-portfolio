@@ -135,6 +135,21 @@
         <!-- TAB 3: PROJECTS -->
         <div id="projects" class="tab-content" style="display: none;">
             <div class="card-grid">
+
+                <div class="card">
+                    <h4>Autonomous Dual-Axis Face-Tracking Gimbal</h4>
+                    <p class="subtitle">Raspberry Pi | Python | OpenCV</p>
+                    <a href="https://github.com/hipsterenova/RaspberryPi-Face-Tracking-Gimbal/tree/main" class="tag" target="_blank">GitHub</a>
+                    <p>
+                       The system continuously processes a 640x480 live video feed, calculates spatial error coordinates, and mechanically drives two pan/tilt servo motors to keep a dynamic target locked in the center of the frame.
+                        <span id="dots-gimbal">...</span>
+                        <span id="more-gimbal" style="display: none;">
+                            Implemented a custom 50Hz PWM proportional controller featuring sequential X-Y axis priority logic to prevent power spikes, a 3-second auto-centering fallback protocol, and headless execution to optimize CPU overhead.
+                             Eliminated 100% of non-RTOS PWM motor jitter using a dynamic 0V power-cut logic loop within a 100x80 pixel deadzone, and prevented target overshoot by strictly synchronizing actuation steps with sequential, frame-by-frame spatial error calculations
+                        </span>
+                        <button onclick="toggleReadMore('gimbal')" id="btn-gimbal" class="read-more-btn">more</button>
+                    </p>
+                </div>
                 
                 <div class="card">
                     <h4>Portfolio Website</h4>
